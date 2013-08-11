@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+ 
+<h:head>
+	<title>GAE + JSF</title>
+</h:head>
+<h:body>
+	<h2 align="center">Who Will Become PM in 2014</h2>
+	<h:panelGroup rendered="true">
+		<h:graphicImage width="30%" url="images/narendra_modi2.jpg"> </h:graphicImage>
+	</h:panelGroup>
+	<h:panelGroup border="0">		
+		<h:commandButton value="Vote" action="#{pollBean.voteNamo}"></h:commandButton>
+		<br></br>
+		<h:outputLabel value="Count:"></h:outputLabel>&nbsp;
+		<h:inputText value="#{pollBean.namoCount}" readonly="true"></h:inputText>
+	</h:panelGroup>
+</h:body>
+</html>

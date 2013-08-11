@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<libraryInfos>
+<libraryInfo home="C:\DATA\ORACLE\JRockit16" version="1.6.0_26">
+<bootpath>
+<entry path="C:\DATA\ORACLE\JRockit16\jre\lib\resources.jar"/>
+<entry path="C:\DATA\ORACLE\JRockit16\jre\lib\rt.jar"/>
+<entry path="C:\DATA\ORACLE\JRockit16\jre\lib\sunrsasign.jar"/>
+<entry path="C:\DATA\ORACLE\JRockit16\jre\lib\jsse.jar"/>
+<entry path="C:\DATA\ORACLE\JRockit16\jre\lib\jce.jar"/>
+<entry path="C:\DATA\ORACLE\JRockit16\jre\lib\charsets.jar"/>
+<entry path="C:\DATA\ORACLE\JRockit16\jre\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="C:\DATA\ORACLE\JRockit16\jre\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="C:\DATA\ORACLE\JRockit16\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="C:\DATA\ORACLE\JRockit16\jre" version="1.6.0_26">
+<bootpath>
+<entry path="C:\DATA\ORACLE\JRockit16\jre\lib\resources.jar"/>
+<entry path="C:\DATA\ORACLE\JRockit16\jre\lib\rt.jar"/>
+<entry path="C:\DATA\ORACLE\JRockit16\jre\lib\sunrsasign.jar"/>
+<entry path="C:\DATA\ORACLE\JRockit16\jre\lib\jsse.jar"/>
+<entry path="C:\DATA\ORACLE\JRockit16\jre\lib\jce.jar"/>
+<entry path="C:\DATA\ORACLE\JRockit16\jre\lib\charsets.jar"/>
+<entry path="C:\DATA\ORACLE\JRockit16\jre\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="C:\DATA\ORACLE\JRockit16\jre\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="C:\DATA\ORACLE\JRockit16\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+</libraryInfos>

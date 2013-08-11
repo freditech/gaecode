@@ -1,0 +1,32 @@
+package com.fredi.practice.mbean;
+
+import java.io.Serializable;
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.RequestScoped;
+
+@ManagedBean(name="pollBean")
+@RequestScoped
+public class PollBean implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	@ManagedProperty(value=#{})
+	private long namoCount = 0L;
+
+	public long getNamoCount() {
+		return namoCount;
+	}
+
+	public void setNamoCount(long namoCount) {
+		this.namoCount = namoCount;
+	}
+	
+	
+	
+
+}

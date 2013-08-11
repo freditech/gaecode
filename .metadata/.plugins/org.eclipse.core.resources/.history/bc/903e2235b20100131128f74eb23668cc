@@ -1,0 +1,5 @@
+package com.sun.faces.config;
+
+public class WebConfiguration {
+
+}

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="javax.faces.bean.ManagedBean"/>
+<fullyQualifiedTypeName name="javax.faces.bean.RequestScoped"/>
+<fullyQualifiedTypeName name="javax.faces.bean.ManagedProperty"/>
+<fullyQualifiedTypeName name="javax.faces.bean.ViewScoped"/>
+<fullyQualifiedTypeName name="javax.faces.bean.SessionScoped"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,25 @@
+package com.fredi.practice.mbean;
+
+import java.io.Serializable;
+
+public class PollBean implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	private long namoCount = 0L;
+
+	public long getNamoCount() {
+		return namoCount;
+	}
+
+	public void setNamoCount(long namoCount) {
+		this.namoCount = namoCount;
+	}
+	
+	
+	
+
+}
