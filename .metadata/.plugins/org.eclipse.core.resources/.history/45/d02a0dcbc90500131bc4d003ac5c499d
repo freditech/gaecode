@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- The HTML 4.01 Transitional DOCTYPE declaration-->
+<!-- above set at the top of the file will set     -->
+<!-- the browser's rendering engine into           -->
+<!-- "Quirks Mode". Replacing this declaration     -->
+<!-- with a "Standards Mode" doctype is supported, -->
+<!-- but may lead to some differences in layout.   -->
+
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>freditech Employee Management</title>
+  </head>
+
+  <body>
+    <h1>freditech Employee Management</h1>
+	<form action="/manageEmployee"></form>
+    <table style="background-color: aqua;border-color: white;">
+      <tr>
+        <td colspan="2" style="font-size:large;font-weight:bold;"> Create Employee</td>
+      </tr>
+      <tr>
+        <td style="font-weight:bold;">Name:</td>
+		<td> <input type="text" name="empName" size="50"/> </td>
+      </tr>
+      <tr>
+		<td> <input type="submit" name="Create" size="50"/> </td>
+      </tr>
+    </table>
+  </body>
+</html>
