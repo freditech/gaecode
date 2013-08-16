@@ -1,0 +1,125 @@
+package com.fredi.practice.model;
+
+import java.util.List;
+
+import javax.jdo.PersistenceManager;
+import javax.jdo.annotations.IdGeneratorStrategy;
+import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
+import javax.jdo.annotations.PrimaryKey;
+
+import javax.jdo.Query;
+
+import com.fredi.practice.factory.PMF;
+
+@PersistenceCapable
+public class Employee {
+	
+	@Persistent(valueStrategy=IdGeneratorStrategy.IDENTITY)
+	@PrimaryKey
+	private Long id;
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Long getId(){
+		return id;
+	}
+	
+	@Persistent
+	private String name;
+	
+	private Employee() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	/**
+	 * CRUD Operations start.
+	 */
+
+	public static Employee createNew(){
+		return new Employee();
+	}
+
+	public void add(){
+		PersistenceManager pm = PMF.get().getPersistenceManager();
+		try{
+			pm.makePersistent(this);
+		}finally{
+			pm.close();
+		}
+	}
+	
+	public static void delete(Long id){
+		PersistenceManager pm = PMF.get().getPersistenceManager();		
+		Employee emp = null;
+		try{			
+			emp = pm.getObjectById(Employee.class,id);
+			pm.deletePersistent(emp);
+		}finally{
+			pm.close();
+		}
+	}
+	
+	public void delete(){
+		PersistenceManager pm = PMF.get().getPersistenceManager();		
+		Employee emp = null;
+		try{			
+			emp = pm.getObjectById(Employee.class,id);
+			pm.deletePersistent(emp);
+		}finally{
+			pm.close();
+		}
+	}
+	
+	public void update(){
+		PersistenceManager pm = PMF.get().getPersistenceManager();
+		try{
+			pm.makePersistent(this);
+		}finally{
+			pm.close();
+		}
+	}
+	
+	public static Employee getObjectById(Long id){
+		PersistenceManager pm = PMF.get().getPersistenceManager();
+		Employee emp = null;
+		Employee empDetached = null;
+		try{
+			emp = (Employee) pm.getObjectById(Employee.class, id);
+			empDetached = pm.detachCopy(emp);
+		}finally{
+			pm.close();
+		}
+		return emp;
+	}
+	
+	public static List<Employee> getAllEmployees(){
+		PersistenceManager pm = PMF.get().getPersistenceManager();
+		Query q = pm.newQuery(Employee.class);
+		q.setOrdering("name desc");
+		List<Employee> result = null;
+		try{
+			result = (List<Employee>) q.execute();
+			if (!result.isEmpty()) {
+				for(Employee e : result){
+					System.out.println("\n\tEmployee Name: "+e.getName());
+				}
+			}
+		}finally{
+			q.closeAll();
+			pm.close();
+		}
+		return result;
+	}
+}
