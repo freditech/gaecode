@@ -1,0 +1,16 @@
+package com.fredi.practice.store.model;
+
+public class PollResult {
+	
+	private long namoCount;
+	private long rgCount;
+	private long mulayamCount;
+	private long advaniCount;
+	private long mmsCount;
+	private long ammaCount;
+	private long mayaCount;
+	private long mamtaCount;
+	
+	
+
+}

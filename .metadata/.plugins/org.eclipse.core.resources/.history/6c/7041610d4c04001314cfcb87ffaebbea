@@ -1,0 +1,5 @@
+package com.fredi.practice.store.model;
+
+public class PollResult {
+
+}
