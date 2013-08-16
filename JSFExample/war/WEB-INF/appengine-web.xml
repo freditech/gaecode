@@ -12,6 +12,11 @@
   <!-- Configure java.util.logging -->
   <system-properties>
     <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
+    <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
+    <property name="cloudsql.url" value="jdbc:google:mysql://your-instance-name/demo?user=root"/>
+    <property name="cloudsql.url.dev" value="jdbc:mysql://localhost/demo?user=root"/>
+    <property name="google.mysql.driver" value="com.mysql.jdbc.GoogleDriver"/>
+    <property name="mysql.driver" value="com.mysql.jdbc.Driver"/>
   </system-properties>
 
   <!--

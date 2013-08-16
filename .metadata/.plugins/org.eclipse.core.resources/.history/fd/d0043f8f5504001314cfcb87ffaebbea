@@ -1,0 +1,45 @@
+package com.fredi.practice.store.service;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.jdo.JDOHelper;
+import javax.jdo.PersistenceManager;
+import javax.jdo.PersistenceManagerFactory;
+
+import com.fredi.practice.store.model.PollResult;
+import com.google.appengine.api.utils.SystemProperty;
+
+public class PollService {
+	private static PersistenceManagerFactory PMF = null;
+	
+	static{
+	    Map<String, String> properties = new HashMap<String, String>();
+	    if (SystemProperty.environment.value() == SystemProperty.Environment.Value.Production) {
+	      properties.put("javax.jdo.option.ConnectionDriverName",
+	    		  			System.getProperty("google.mysql.driver"));
+	      properties.put("javax.jdo.option.ConnectionURL",
+	    		  			System.getProperty("cloudsql.url"));
+	    } else {
+	      properties.put("javax.jdo.option.ConnectionDriverName",
+	    		  			System.getProperty("mysql.driver"));
+	      properties.put("javax.jdo.option.ConnectionURL",
+	    		  			System.getProperty("cloudsql.url.dev"));
+	    }
+	    PMF = JDOHelper.getPersistenceManagerFactory(properties, "Demo");
+	    
+	    
+	    PersistenceManager pm = PMF.getPersistenceManager();
+        PollResult poll = new PollResult(1L);
+        poll.resetAllCounts();
+        try {
+            pm.makePersistent(poll);
+        } finally {
+            pm.close();
+        }
+        
+	}
+	
+	
+	
+}

@@ -1,0 +1,32 @@
+package com.fredi.practice.web;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.fredi.practice.model.Employee;
+
+public class ManageEmployeeServlet extends HttpServlet {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		super.doPost(req, resp);
+		
+		if(req.getParameter("create")!=null){
+			Employee emp = Employee.createNew();
+			emp.setName(req.getParameter("name"));
+			emp.add();
+			req.getRequestDispatcher("/list.jsp").forward(req, resp);
+		}
+	}
+
+}

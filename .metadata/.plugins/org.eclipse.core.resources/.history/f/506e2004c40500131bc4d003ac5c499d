@@ -1,0 +1,21 @@
+package com.fredi.practice.service;
+
+import com.fredi.practice.model.Employee;
+
+public class EmployeeService {
+
+	//createNew employee
+	public Employee createNew(){
+		//Add defaulting logic here.
+		Employee emp = new Employee();
+		return emp;
+	}
+	
+	public void add(){
+		// persist a new object.
+		
+	}
+	
+	
+	
+}
