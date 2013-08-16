@@ -1,0 +1,13 @@
+package com.fredi.practice.service;
+
+import com.fredi.practice.model.Employee;
+
+public class EmployeeService {
+
+	//create employee
+	public Employee createEmployee(){
+		
+	}
+	
+	
+}

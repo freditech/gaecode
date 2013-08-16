@@ -1,0 +1,90 @@
+package com.fredi.practice.model;
+
+import java.util.List;
+
+import javax.jdo.PersistenceManager;
+import javax.jdo.annotations.IdGeneratorStrategy;
+import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
+import javax.jdo.annotations.PrimaryKey;
+
+import javax.jdo.Query;
+
+import com.fredi.practice.factory.PMF;
+
+@PersistenceCapable
+public class Employee {
+	
+	@Persistent(valueStrategy=IdGeneratorStrategy.IDENTITY)
+	@PrimaryKey
+	private Long id;
+
+	@Persistent
+	private String name;
+	
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	private Employee() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public static Employee createNew(){
+		return new Employee();
+	}
+
+	public void add(){
+		PersistenceManager pm = PMF.get().getPersistenceManager();
+		try{
+			pm.makePersistent(this);
+		}finally{
+			pm.close();
+		}
+	}
+	
+	public static Employee getObjectByPrimaryKey(String id){
+		PersistenceManager pm = PMF.get().getPersistenceManager();
+		//Key key = KeyFactory.createKey(Employee.class.getSimpleName(), id);
+		Employee emp = null, empDetached = null;
+		try{
+			emp = (Employee) pm.getObjectById(Employee.class, id);
+			empDetached = pm.detachCopy(emp);
+		}finally{
+			pm.close();
+		}
+		return empDetached;
+	}
+	
+	public static List<Employee> getAllEmployees(){
+		PersistenceManager pm = PMF.get().getPersistenceManager();
+		Query q = pm.newQuery(Employee.class);
+		q.setOrdering("name desc");
+		List<Employee> result = null;
+		try{
+			result = (List<Employee>) q.execute();
+			if (!result.isEmpty()) {
+				for(Employee e : result){
+					System.out.println("\n\tEmployee Name: "+e.getName());
+				}
+			}
+		}finally{
+			q.closeAll();
+			pm.close();
+		}
+		return result;
+	}
+}
